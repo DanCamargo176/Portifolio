@@ -1,0 +1,294 @@
+/*Importando a Fonte do Portifolio*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+/*Corpo do Site/Fontes*/
+body{
+	margin:  0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+	color: #1E1E2A;
+}
+
+/*Container onde ficam o background*/
+.header-container {
+	height: 90vh;
+	width:  100vw;
+	background-color: #87CEFA;
+	background-image:  url('./img/fundo.png');;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	display: block;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	box-sizing: border-box;
+	padding: 0 112px;
+	position:  relative;
+}
+/*Fonte dos titúlos Daniel Camargo / Full Stack Developer*/
+h1{
+	padding: 0;
+	font-size: 50px;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+}
+
+h2{
+	padding: 0;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+}
+/* Estilizacão dos botões Linkedin e Github*/
+
+.social-media{
+	margin-top: 10rem;
+	display: flex;
+}
+
+.social-media a{
+	text-decoration: none;
+	color: 1E1E2A;
+	padding: 1rem;
+	border: 1px solid #1E1E2A;
+	min-width: 4rem;
+	display: flex;
+	align-items: center;
+	justify-content:center;
+	transition: .5s ease-in-out;
+
+}
+
+a:hover {
+	background-color: white;
+}
+
+/*Menu Fechado*/
+
+.checkbox-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.checkbox{
+	height: 100px;
+	width: 100px;
+	position:  absolute;
+	right: 0;
+	top: 0;
+	display:  flex;
+	justify-content: center;
+	cursor: pointer;
+	z-index: 9999;
+	transition: 400ms ease-in-out 0s;
+}
+/*Traços do Menu Superior Direito*/
+.checkbox .trace{
+	width: 50px;
+	height: 2px;
+	background-color: #1E1E2A;
+	position: absolute;
+	border-radius: 4px;
+	transition: 0.5s ease-in-out;
+}
+/*Estilização dos traços do Menu*/
+.checkbox .trace:nth-child(1){
+	top: 26px;
+	transform: rotate(0);
+}
+/*Estilização dos traços do Menu*/
+.checkbox .trace:nth-child(2){
+	top: 46px
+;	transform: rotate(0);
+}
+/*Estilização dos traços do Menu*/
+.checkbox .trace:nth-child(3){
+	top: 66px;
+	transform: rotate(0);
+}
+
+/*Esconder a Caixa de Seleção do Checkbox*/
+#toggle{
+	display: none;	
+}
+
+/*Div Menu onde ficará o abrir e fechar do Menu*/
+.menu{
+	position: absolute;
+	top: 28px;
+	right: 30px;
+	background-color: transparent;
+	height: 4px;
+	width: 10px;
+	border-radius: 50%;
+	box-shadow: 0px 0px 0px 0px #ffffff;
+}
+/*Itens do Menu que estao fixos e escondidos até o usuario clicar no botao do Menu*/
+.menu-items{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	z-index: 2;
+	opacity: 0;
+	visibility: hidden;
+	transition: 400ms ease-in-out 0s;
+
+}
+
+.menu-items ul{
+	list-style-type: none;
+}
+
+.menu-items ul li a{
+	margin 10px
+	color: #1e1e2a;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-size: 40px;
+}
+
+/*Animação de Abertura do Menu*/
+
+
+/*Animação dos traços do Menu*/
+/*Se a checkbox estiver selecionada, faça: */
+#toggle:checked + .checkbox .trace:nth-child(1){
+	transform: rotate(45deg); /*Rotaciona 45graus*/
+	top: 67px; /*Desce 67px do TOPO*/
+}
+#toggle:checked + .checkbox .trace:nth-child(2){
+	transform: translate(-100px); /*Transição para a direita e desaparece*/
+	width: 30px;
+	visibility: hidden;
+	opacity: 0;
+}
+#toggle:checked + .checkbox .trace:nth-child(3){
+	transform: rotate(-45deg); /*Rotaciona -45graus*/
+	width: 48px; /*Sobe 48px*/
+}
+
+#toggle:checked + .checkbox{
+background-color: white ;
+}
+/*Se o checkbox estiver selecionado, pega todas as dependencias da div .menu e aplica o box-shadow dando efeito de abertura do menu*/
+#toggle:checked ~.menu{
+	box-shadow: 0px 0px 0px 100vmax #ffffff;
+	z-index: 1;
+}
+
+#toggle:checked ~ .menu-items{
+	visibility: visible;
+	opacity: 1;
+}
+
+/*Card dos projetos*/
+.container{
+	height: auto;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	margin: 3rem 0;
+}
+
+.card-container{
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 90%;
+}
+
+.card{
+	width: 300px;
+	height: 300px;
+	border-radius: 100%;
+	margin: 3rem 0 0 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #00CED1;
+	background-position: center;
+	background-size:cover;
+	background-repeat: no-repeat;
+	filter: grayscale(0.5);
+	color:  white;
+	cursor: pointer;
+	transition: 0.5s ease-in-out;
+}
+
+.card-text{
+	width: 40%;
+}
+.card-wrapper{
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: safe center;
+	align-items: center;
+	position: relative;
+}
+.card-wrapper::before{
+	content: '';
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	display: block;
+	border: 1px solid white;
+	opacity: 0;
+	transition: 0.5s ease-in-out;
+}
+
+.card-wrapper h2{
+	text-transform: uppercase;
+	margin: 0;
+	transition: 0.5s ease-in-out;
+
+}
+
+.card-wrapper p{
+	font-se 0;
+	visibility: hidden;
+	opacity: 0;
+	font-weight: bold;
+	text-transform: uppercase;
+	transition: 0.5s ease-in-out;
+
+}
+
+.card:hover{
+	filter: unset;
+}
+
+.card:hover > .card-wrapper::before{
+	height: 300px;
+	width: 300px;
+	opacity: 1;
+
+}
+.card:hover > .card-wrapper p{
+	opacity: 1;
+	visibility: visible;
+	font-size: 20px;
+}
+
+/*RODAPÉ*/
+
+.footer{
+	font-size: 20px;
+	width: 100%;
+	height: 100px;
+	background-color: #00CED1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color:  #1e1e2a;
+
+}
